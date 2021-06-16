@@ -1,0 +1,7 @@
+version: '3'
+services:
+  ivy:
+    build: .
+    volumes:
+      - ./ivy:/home/user/ivy
+
