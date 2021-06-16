@@ -11,12 +11,13 @@ RUN apt-get update && apt-get install -y locales && \
     update-locale LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 
-RUN apt-get update && apt-get install -y git python2 python-pip g++ cmake python-ply python-tk tix pkg-config libssl-dev python-setuptools libreadline-dev
+RUN apt-get update && apt-get install -y git python2 python-pip g++ cmake python-ply python-tk tix pkg-config libssl-dev python-setuptools libreadline-dev sudo
 
 # create a user:
-RUN useradd -ms /bin/bash user
+RUN useradd -ms /bin/bash user && echo 'user:user' | chpasswd && adduser user sudo
+RUN echo "ALL ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER user
-WORKDIR /home/user
+WORKDIR /home/user/
 
 RUN git clone --recurse-submodules https://github.com/kenmcmil/ivy.git
 WORKDIR /home/user/ivy/
@@ -30,5 +31,3 @@ RUN python2.7 setup.py develop --prefix="/home/user/python/"
 ENV PATH=$PATH:"/home/user/python/bin/"
 
 WORKDIR /home/user/
-
-CMD ivy_check
