@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y git python2 python-pip g++ cmake python
 RUN useradd -ms /bin/bash user && echo 'user:user' | chpasswd && adduser user sudo
 RUN echo "ALL ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-COPY setup.sh /home/user/
+COPY --chown=user:user setup.sh /home/user/
 RUN chmod +x /home/user/setup.sh
 
 USER user
