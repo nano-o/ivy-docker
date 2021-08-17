@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y locales && \
 ENV LANG=en_US.UTF-8
 
 RUN apt-get update && apt-get install -y git python3 python3-pip g++ cmake python3-ply python3-tk tix pkg-config libssl-dev python3-setuptools libreadline-dev sudo python3-pyparsing aptitude
-RUN pip install z3-solver
+RUN pip install z3-solver ipdb
 
 # create a user:
 RUN useradd -ms /bin/bash user && echo 'user:user' | chpasswd && adduser user sudo
