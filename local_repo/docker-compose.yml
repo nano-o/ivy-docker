@@ -2,6 +2,15 @@ version: '3'
 services:
   ivy:
     build: .
+    environment:
+      - PYTHONPATH=/home/user/python/lib/python2.7/site-packages
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/user/python/bin/
     volumes:
       - ./ivy:/home/user/ivy
+      - /home/giuliano/tendermint/spec/ivy-proofs/:/home/user/tendermint
+      - /home/giuliano/scp-proofs/:/home/user/scp-proofs
+    command: /bin/bash
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+
 
