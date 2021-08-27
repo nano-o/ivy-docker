@@ -1,6 +1,6 @@
 Steps to get running:
+- make sure that the ivy submodule is up to date (and its own submodules too)
 - `docker-compose build ivy`
-- Clone ivy in `./ivy`: `git clone --recurse-submodules https://github.com/kenmcmil/ivy.git`
 - Run the container: `docker-compose run ivy`
 - Inside the container, build and setup with `source /home/user/setup.sh`
 
