@@ -2,3 +2,6 @@
 	path = local_repo_python_3/ivy
 	url = git@github.com:kenmcmil/ivy.git
 	branch = 2to3
+[submodule "local_repo/ivy"]
+	path = local_repo/ivy
+	url = git@github.com:kenmcmil/ivy.git
