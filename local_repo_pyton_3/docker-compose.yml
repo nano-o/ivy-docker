@@ -6,8 +6,7 @@ services:
       - PATH=/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     volumes:
       - ./ivy:/home/user/ivy
-      - /home/giuliano/tendermint/spec/ivy-proofs/:/home/user/tendermint
-      - /home/giuliano/scp-proofs/:/home/user/scp-proofs
+      # add more volumes as needed
     command: /bin/bash
     stdin_open: true # docker run -i
     tty: true        # docker run -t
