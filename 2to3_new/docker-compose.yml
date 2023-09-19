@@ -1,0 +1,15 @@
+version: '3'
+services:
+  ivy:
+    image: ivy_2to3_new:latest
+    volumes:
+      - ./shared:/home/user/shared:rw
+    command: /bin/bash
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    container_name: ivy_2to3_new
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+
